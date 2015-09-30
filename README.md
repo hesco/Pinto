@@ -4,7 +4,7 @@ Pinto - Curate a repository of Perl modules
 
 # VERSION
 
-version 0.09995
+version 0.11
 
 # SYNOPSIS
 
@@ -143,7 +143,7 @@ in addition to those websites please use your favorite search engine to discover
 
     The CPANTS is a website that analyzes the Kwalitee ( code metrics ) of a distribution.
 
-    [http://cpants.perl.org/dist/overview/Pinto](http://cpants.perl.org/dist/overview/Pinto)
+    [http://cpants.cpanauthors.org/dist/Pinto](http://cpants.cpanauthors.org/dist/Pinto)
 
 - CPAN Testers
 
@@ -191,12 +191,6 @@ from your repository :)
 # CONTRIBUTORS
 
 - BenRifkah Bergsten-Buret <mail.spammagnet+github@gmail.com>
-- Boris Däppen <bdaeppen.perl@gmail.com>
-- Cory G Watson <gphat@onemogin.com>
-- David Steinbrunner <dsteinbrunner@pobox.com>
-- Glenn Fowler <cebjyre@cpan.org>
-- Jakob Voss <jakob@nichtich.de>
-- Jeffrey Ryan Thalhammer <jeff@thaljef.org>
 - Karen Etheridge <ether@cpan.org>
 - Michael G. Schwern <schwern@pobox.com>
 - Nikolay Martynov <mar.kolya@gmail.com>
@@ -207,7 +201,16 @@ from your repository :)
 - Yanick Champoux <yanick@babyl.dyndns.org>
 - brian d foy <brian.d.foy@gmail.com>
 - hesco <hesco@campaignfoundations.com>
+- Boris Däppen <bdaeppen.perl@gmail.com>
 - popl <popl\_likes\_to\_code@yahoo.com>
+- Chris Kirke <chris.kirke@gmail.com>
+- Cory G Watson <gphat@onemogin.com>
+- David Steinbrunner <dsteinbrunner@pobox.com>
+- Florian Ragwitz <rafl@debian.org>
+- Glenn Fowler <cebjyre@cpan.org>
+- Jakob Voss <jakob@nichtich.de>
+- Jeffrey Ryan Thalhammer <jeff@thaljef.org>
+- Kahlil (Kal) Hodgson <kahlil.hodgson@dealmax.com.au>
 
 # AUTHOR
 
@@ -215,7 +218,7 @@ Jeffrey Ryan Thalhammer <jeff@stratopan.com>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Jeffrey Ryan Thalhammer.
+This software is copyright (c) 2015 by Jeffrey Ryan Thalhammer.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -26,32 +26,39 @@ $t->run_ok( Pin  => { targets => 'PkgC', stack => 'foo' } );
 local $ENV{PINTO_DIFF_STYLE} = $PINTO_DIFF_STYLE_CONCISE;
 #------------------------------------------------------------------------------
 
-{
+sub linere { map { qr{^ \Q$_\E $}mx } @_ }
+
+subtest 'basic comparisons' => sub {
+
     my @expected = (
-        qr{^ \Q-[rl-] AUTHOR/Dist-1.tar.gz\E $}mx,
-        qr{^ \Q+[rl!] AUTHOR/Dist-2.tar.gz\E $}mx,
+        '-[rl-] AUTHOR/Dist-1.tar.gz',
+        '+[rl!] AUTHOR/Dist-2.tar.gz',
     );
 
     # Compare by revision id
     my $rev0 = $t->get_stack('master')->head->uuid;
     my $rev1 = $t->get_stack('foo')->head->uuid;
     $t->run_ok( Diff => { left => $rev0, right => $rev1 } );
-    $t->stdout_like($_) for @expected;
+    $t->stdout_like($_) for linere(@expected);
 
     # With abbreviated revision id
     $rev0 = substr( $rev0, 0, 4 );
     $rev1 = substr( $rev1, 0, 4 );
     $t->run_ok( Diff => { left => $rev0, right => $rev1 } );
-    $t->stdout_like($_) for @expected;
+    $t->stdout_like($_) for linere(@expected);
 
     # With stack name and revision id
     $t->run_ok( Diff => { left => 'master', right => $rev1 } );
-    $t->stdout_like($_) for @expected;
-}
+    $t->stdout_like($_) for linere(@expected);
+
+    # With a custom diff format
+    $t->run_ok( Diff => { left => $rev0, right => $rev1, format => '%o[%F] %a/%f %s %S' } );
+    $t->stdout_like($_) for linere(map { "$_ l LOCAL" } @expected);
+
+};
 
 #------------------------------------------------------------------------------
-
-{
+subtest 'basic comparisons with bogus data' => sub {
 
     # Error case: bogus stack name or revision id
     $t->run_throws_ok(
@@ -78,7 +85,8 @@ local $ENV{PINTO_DIFF_STYLE} = $PINTO_DIFF_STYLE_CONCISE;
         Diff => { left => undef, right => 'foo' },
         qr/default stack has not been set/
     );
-}
+
+};
 
 #------------------------------------------------------------------------------
 
